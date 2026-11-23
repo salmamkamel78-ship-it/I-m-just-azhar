@@ -1,202 +1,27 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I'm just a Azhar</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azhar - فقه شافعي ادبي كامل</title>
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#ff2e8f">
 <style>
-*{box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
-body{margin:0;background:#FFF0F5;color:#4A2C3A;padding-bottom:95px}
-.header{background:linear-gradient(135deg,#FF9EBB,#FFC2D4);padding:22px 18px 28px;border-radius:0 0 28px 28px;text-align:center;color:white}
-.header h1{margin:0;font-size:22px}
-.header p{margin:8px 0 0;opacity:.95;font-size:14px}
-.card{background:white;margin:14px;border-radius:20px;padding:16px;box-shadow:0 4px 15px rgba(255,158,187,.15)}
-.subjects{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 14px}
-.sub{background:white;border-radius:18px;padding:14px;text-align:center;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.05);border:2px solid #FFE3EE}
-.sub span{font-size:26px;display:block}.sub b{display:block;margin-top:6px;font-size:14px}.sub small{color:#B08A9A;font-size:11px}
-.btn{background:#FF6B9D;color:white;border:none;padding:13px;width:100%;border-radius:14px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:9px}
-.btn2{background:white;color:#FF6B9D;border:2px solid #FF6B9D;padding:11px;width:100%;border-radius:14px;font-size:14px;font-weight:bold;cursor:pointer;margin-top:8px}
-.hidden{display:none}
-.progress{height:10px;background:#FFE3EE;border-radius:10px;overflow:hidden}.progress div{height:100%;background:#FF6B9D;width:35%}
-.timer{font-size:52px;text-align:center;font-weight:bold;color:#FF6B9D;margin:8px 0}
-.nav{position:fixed;bottom:0;right:0;left:0;background:white;display:flex;justify-content:space-around;padding:11px;border-top:1px solid #FFE3EE;z-index:10}
-.nav div{text-align:center;font-size:12px;color:#B08A9A;cursor:pointer}.nav .active{color:#FF6B9D;font-weight:bold}
-input{width:100%;padding:12px;border:1.5px solid #FFD6E8;border-radius:12px;margin-top:8px}
-.lesson{padding:12px;border-bottom:1px dashed #FFD6E8;display:flex;justify-content:space-between;cursor:pointer}
-.lesson b{font-size:14px}.tag{font-size:11px;background:#FFF0F5;color:#FF6B9D;padding:3px 8px;border-radius:20px}
-.q{background:#FFF9FB;border:1px solid #FFE3EE;border-radius:14px;padding:12px;margin-top:10px}
-.q b{font-size:13px}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#ffe9f3;color:#4a1e33;padding-bottom:110px}
+.top{padding:22px 18px 6px;background:linear-gradient(180deg,#ffd1e6,#ffe9f3);position:relative}
+.top h1{font-size:27px;margin:10px 0 4px}.top h1 span{color:#ff2e8f}.top p{color:#8a5a71;margin:0;font-size:14px;line-height:1.6}
+.card{background:white;margin:10px 16px;border-radius:26px;padding:16px;box-shadow:0 10px 26px rgba(255,46,143,.12);cursor:pointer}
+.card small{background:#ffe9f3;color:#ff2e8f;padding:5px 10px;border-radius:999px;font-weight:800;font-size:12px}
+.card h2{margin:9px 0 4px;font-size:19px}.card p{margin:0;color:#8a5a71;font-size:13.5px;line-height:1.6}
+.detail{display:none;background:white;margin:0 16px 12px;border-radius:26px;padding:18px;box-shadow:0 10px 26px rgba(255,46,143,.14)}
+.detail.open{display:block}
+.q{background:#fff7fa;border:1.5px solid #ffd1e6;border-radius:20px;padding:14px;margin:11px 0}
+.q b{color:#ff2e8f;font-size:15px}.q h3{margin:0 0 8px;color:#ff2e8f;font-size:16px}
+.q p,.q li{font-size:14.5px;line-height:1.95}ul,ol{padding-right:18px;margin:5px 0}
+.note{background:#ffe9f3;border-radius:14px;padding:10px 12px;font-size:13.5px;line-height:1.8;margin-top:8px}
+.btn{border:0;width:calc(100% - 32px);margin:8px 16px;background:#ff2e8f;color:white;padding:14px;border-radius:999px;font-weight:800}
+.butterfly{position:absolute;animation:fly 5s ease-in-out infinite}@keyframes fly{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.nav{position:fixed;bottom:14px;left:16px;right:16px;background:rgba(255,255,255,.95);border-radius:28px;display:flex;justify-content:space-around;padding:12px;box-shadow:0 12px 30px rgba(0,0,0,.12);font-size:12px;font-weight:700;color:#b08a9a}.nav .on{color:#ff2e8f}
 </style>
 </head>
 <body>
-<div id="page-home">
-<div class="header"><h1>I'm just a Azhar 🩷</h1><p>السلام عليكم يا قمر! جاهزة لمذاكرة النهاردة؟</p></div>
-<div class="card"><b>✨ تذكير اليوم</b><p style="margin:8px 0 0">اطلب العلم فهو طريق إلى الجنة</p><div class="progress" style="margin-top:12px"><div></div></div><small>كملي يا بطلة، انتي قدها 💪</small></div>
-<div class="card"><b>انتي في قسم ايه؟</b><button class="btn" onclick="chooseSection('ادبي')">ادبي - ازهر</button><button class="btn2" onclick="chooseSection('علمي')">علمي - ازهر</button><p id="sectionText" style="text-align:center;color:#FF6B9D;font-weight:bold"></p></div>
-<h3 style="padding:0 18px">موادك 📚</h3>
-<div class="subjects" id="subjectsList"></div>
-<div class="card"><b>انجازك النهاردة 🏆</b><p>كل ما تخلصي درس دوسي عليه واعمليه تم ✅</p><div id="doneCount">خلصتي 0 درس لحد دلوقتي</div></div>
-</div>
-<div id="page-subject" class="hidden">
-<div class="header"><h1 id="subjectTitle">المادة</h1><p id="subjectSub">دروسك كلها هنا</p></div>
-<div class="card"><div id="lessonsList"></div></div>
-<div class="card"><button class="btn2" onclick="showPage('home')">رجوع للرئيسية</button></div>
-</div>
-<div id="page-lesson" class="hidden">
-<div class="header"><h1 id="lessonTitle">الدرس</h1><p id="lessonSub"></p></div>
-<div class="card" id="lessonContent"></div>
-<div class="card"><button class="btn" onclick="markDone()">خلصت الدرس ده ✅</button><button class="btn2" onclick="showPage('subject')">رجوع للدروس</button></div>
-</div>
-<div id="page-fiqh" class="hidden">
-<div class="header"><h1>الفقه ⚖️</h1><p>اختاري مذهبك مرة واحدة وهيتحفظ</p></div>
-<div class="card"><b>انتي مذهبك ايه؟</b><button class="btn" onclick="chooseMadhab('شافعي')">فقه شافعي</button><button class="btn2" onclick="chooseMadhab('حنفي')">فقه حنفي</button><p id="madhabText"></p></div>
-<div class="card"><button class="btn2" onclick="showPage('home')">رجوع</button></div>
-</div>
-<div id="page-timer" class="hidden">
-<div class="header"><h1>جلسة تركيز 🍅</h1><p>50 دقيقة مذاكرة - 10 دقايق راحة</p></div>
-<div class="card" style="text-align:center"><div class="timer" id="timerText">50:00</div><p id="timerStatus">جاهزة تبدأي؟</p><button class="btn" onclick="startTimer()">ابدأي المذاكرة</button><button class="btn2" onclick="resetTimer()">اعادة</button></div>
-<div class="card"><b>نصيحة التركيز:</b><p>موبايلك على وضع الطيران، ميه جنبك، وابدأي بأصعب درس الاول.</p></div>
-</div>
-<div id="page-tasks" class="hidden">
-<div class="header"><h1>مهام اليوم ✅</h1><p>اكتبي هتذاكري ايه النهاردة</p></div>
-<div class="card"><input id="taskInput" placeholder="مثلا: درس النكاح في الفقه"><button class="btn" onclick="addTask()">اضافة مهمة</button><div id="tasksList" style="margin-top:12px"></div></div>
-</div>
-<div class="nav">
-<div class="active" onclick="showPage('home',this)">🏠<br>الرئيسية</div>
-<div onclick="showPage('timer',this)">⏰<br>المؤقت</div>
-<div onclick="showPage('tasks',this)">✅<br>مهامي</div>
-<div onclick="showPage('fiqh',this)">📖<br>الفقه</div>
-</div>
-<script>
-let section = localStorage.getItem('section') || '';
-let madhab = localStorage.getItem('madhab') || '';
-let done = JSON.parse(localStorage.getItem('done')||'[]');
-let currentSubject='', currentLesson='';
-const DATA = {
-'فقه شافعي': [
-{t:'كتاب النكاح',d:'تعريف النكاح لغة وشرعا، حكمه، اركانه الخمسة: زوج، زوجة، ولي، شاهدان، صيغة. الصيغة لازم تكون بلفظ الانكاح او التزويج وفي نفس المجلس.',q:['عرفي النكاح شرعا؟','ما اركان النكاح الخمسة؟','متى يكون النكاح واجبا؟','ما شروط الصيغة؟']},
-{t:'محرمات النكاح',d:'محرمات على التأبيد: الام، البنت، الاخت، العمة، الخالة، ام الزوجة، بنت الزوجة، زوجة الابن. ومحرمات مؤقتة: الجمع بين الاختين، الجمع بين المرأة وعمتها او خالتها.',q:['ما المحرمات على التأبيد؟','ليه مينفعش الجمع بين الاختين؟','ما الفرق بين التحريم المؤبد والمؤقت؟']},
-{t:'الولاية والكفاءة والمهر',d:'الولي ركن عند الشافعية، ترتيبه: الاب ثم الجد ثم الاخ ثم العم. الكفاءة في الدين والنسب والحرية والحرفة. المهر حق للزوجة.',q:['رتبي الاولياء؟','ما هي الكفاءة؟','ما هو المهر؟']},
-{t:'الطلاق',d:'تعريفه: حل عقد النكاح بلفظ الطلاق. انواعه: سني وبدعي، رجعي وبائن. عدد الطلقات 3 للحر و 2 للعبد.',q:['عرفي الطلاق؟','ما الفرق بين الرجعي والبائن؟','ما هو الطلاق السني؟']},
-{t:'الرجعة',d:'تعريفها: رد المرأة الى النكاح في العدة بعد طلاق رجعي. تكون بالقول مثل راجعتك، او بالفعل. لا تحتاج ولي ولا مهر جديد.',q:['عرفي الرجعة؟','هل تحتاج الرجعة ولي؟','بماذا تكون الرجعة؟']},
-{t:'الخلع',d:'فراق بعوض تدفعه الزوجة. يكون بلفظ الخلع او الطلاق على مال. هو طلاق بائن، لا رجعة فيه الا بعقد جديد.',q:['عرفي الخلع؟','هل الخلع طلاق رجعي ام بائن؟']},
-{t:'الإيلاء',d:'حلف الزوج ان لا يجامع زوجته اكثر من 4 شهور. بعد 4 شهور يطالب بالفيئة او الطلاق.',q:['عرفي الايلاء؟','ما مدة الايلاء؟']},
-{t:'الظهار',d:'ان يقول الرجل لزوجته: انت علي كظهر امي. حكمه حرام، وكفارته: عتق رقبة، فان لم يجد صيام شهرين متتابعين، فان لم يستطع اطعام 60 مسكين.',q:['عرفي الظهار؟','ما كفارة الظهار بالترتيب؟']},
-{t:'العدد',d:'عدة المطلقة 3 قروء، عدة المتوفى عنها زوجها 4 شهور و 10 ايام، عدة الحامل بوضع الحمل.',q:['ما عدة المطلقة؟','ما عدة المتوفى عنها زوجها؟','ما عدة الحامل؟']},
-{t:'الرضاع',d:'يحرم من الرضاع ما يحرم من النسب. يثبت التحريم بخمس رضعات متفرقات في الحولين. الرضاع يثبت المحرمية فقط.',q:['كم رضعة تحرم؟','ما الذي يثبته الرضاع؟']},
-{t:'الحضانة',d:'حفظ الولد وتربيته. الام احق بالحضانة ثم ام الام ثم ام الاب ثم الاب. تنتهي حضانة الولد ببلوغ 7 سنوات ويخير.',q:['من احق بالحضانة بالترتيب؟','متى تنتهي حضانة الولد؟']}
-],
-'فقه حنفي': [
-{t:'كتاب النكاح - حنفي',d:'عند الحنفية الولي ليس ركن، المرأة البالغة العاقلة لها ان تزوج نفسها. اركان النكاح: الايجاب والقبول فقط.',q:['ما الفرق بين الحنفية والشافعية في الولي؟']},
-{t:'الطلاق - حنفي',d:'الطلاق عند الحنفية: رجعي وبائن وخلع. الطلاق الثلاث في مجلس واحد يقع ثلاثا عند الحنفية.',q:['ما حكم الثلاث في مجلس واحد عند الحنفية؟']},
-{t:'الخلع - حنفي',d:'الخلع عند الحنفية طلاق بائن بعوض.',q:['ما هو الخلع عند الحنفية؟']},
-{t:'العدد - حنفي',d:'عدة المطلقة 3 حيضات، عدة المتوفى عنها 4 شهور و 10 ايام.',q:['ما عدة المطلقة عند الحنفية؟']},
-{t:'الرضاع - حنفي',d:'الرضاع المحرم عند الحنفية في مدة الرضاع وهي حولين ونصف عند ابي حنيفة.',q:['ما مدة الرضاع عند الحنفية؟']}
-],
-'ميراث': [
-{t:'موانع الارث',d:'موانع الارث 3: القتل، اختلاف الدين، الرق. القاتل لا يرث.',q:['ما موانع الارث؟','هل يرث القاتل؟']},
-{t:'الوارثون والوارثات',d:'الوارثون من الرجال 10: الابن، ابن الابن، الاب، الجد، الاخ، ابن الاخ، العم، ابن العم، الزوج، المعتق. الوارثات من النساء 7: البنت، بنت الابن، الام، الجدة، الاخت، الزوجة، المعتقة.',q:['اذكري الوارثات من النساء؟']},
-{t:'الفروض المقدرة',d:'الفروض 6: النصف، الربع، الثمن، الثلثان، الثلث، السدس. اصحاب النصف: الزوج عند عدم الولد، البنت الواحدة، بنت الابن، الاخت الشقيقة، الاخت لاب.',q:['ما هي الفروض الستة؟','من اصحاب النصف؟']},
-{t:'اصحاب الربع والثمن والثلث',d:'الربع: للزوج مع الولد، وللزوجة بدون ولد. الثمن: للزوجة مع الولد. الثلث: للام بدون ولد ولا جمع اخوة.',q:['من يرث الثمن؟','من يرث الربع؟']},
-{t:'العصبة',d:'العصبة: من يرث بلا تقدير، يأخذ الباقي بعد اصحاب الفروض. العصبة بالنفس: الابن، الاب، الاخ. العصبة بالغير: البنت مع الابن.',q:['ما هي العصبة؟','ما الفرق بين العصبة بالنفس وبالغير؟']},
-{t:'الحجب',d:'الحجب: منع الوارث من الميراث كله او بعضه. حجب حرمان: مثل الاب يحجب الجد، والابن يحجب الاخ. حجب نقصان: مثل الزوج من النصف للربع لوجود الولد.',q:['ما الفرق بين حجب الحرمان وحجب النقصان؟']}
-],
-'قرآن كريم': [
-{t:'سورة البقرة - حفظ',d:'راجعي من اول السورة، قسمي الحفظ 5 آيات في اليوم، وكرري التسميع قبل النوم.',q:['سمعي اول 5 آيات؟']},
-{t:'تجويد - احكام النون الساكنة',d:'الاظهار، الادغام، الاقلاب، الاخفاء. الاظهار مع حروف: همز هاء عين حاء غين خاء.',q:['ما حروف الاظهار؟','ما هو الاقلاب؟']}
-],
-'حديث': [
-{t:'الحديث الاول - انما الاعمال بالنيات',d:'عن عمر بن الخطاب: انما الاعمال بالنيات وانما لكل امرئ ما نوى. يدل على ان النية شرط لقبول العمل.',q:['ما راوي الحديث؟','ما اهمية النية؟']},
-{t:'مصطلح الحديث - الصحيح والحسن',d:'الصحيح: ما اتصل سنده بنقل العدل الضابط عن مثله وسلم من الشذوذ والعلة. الحسن: اخف من الصحيح في الضبط.',q:['عرفي الحديث الصحيح؟']}
-],
-'تفسير': [
-{t:'تفسير سورة الفاتحة',d:'الحمد لله: الثناء على الله. الرحمن الرحيم: صفتان تدلان على الرحمة الواسعة. مالك يوم الدين: مالك يوم الجزاء.',q:['ما معنى الحمد لله؟','ما معنى مالك يوم الدين؟']}
-],
-'توحيد': [
-{t:'اقسام التوحيد',d:'توحيد الربوبية، توحيد الالوهية، توحيد الاسماء والصفات.',q:['ما اقسام التوحيد؟']},
-{t:'الصفات الواجبة لله',d:'الوجود، القدم، البقاء، مخالفته للحوادث، قيامه بنفسه، الوحدانية، القدرة، الارادة، العلم، الحياة، السمع، البصر، الكلام.',q:['اذكري 5 صفات واجبة؟']}
-],
-'عربي': [
-{t:'النحو - المبتدأ والخبر',d:'المبتدأ: اسم مرفوع في اول الجملة. الخبر: يتمم معنى المبتدأ. كلاهما مرفوع.',q:['اعربي: العلم نور؟']},
-{t:'الصرف - الميزان الصرفي',d:'الميزان: فعل. فاء الكلمة، عين الكلمة، لام الكلمة. مثال: كتب على وزن فعل.',q:['زني كلمة: استخرج؟']},
-{t:'البلاغة - التشبيه',d:'التشبيه: اركان اربعة: مشبه، مشبه به، اداة، وجه شبه. انواعه: بليغ، مجمل، مفصل، مؤكد، مرسل.',q:['ما اركان التشبيه؟','ما هو التشبيه البليغ؟']}
-],
-'انجليزي': [
-{t:'Grammar - Present Simple',d:'I play, He plays. نستخدمه للعادات والحقائق. مع he/she/it نضيف s.',q:['حولي: She play tennis الى الصح؟']},
-{t:'Vocabulary - Study Words',d:'ذاكري 10 كلمات جديدة كل يوم: achieve, success, goal, focus, effort.',q:['ما معنى achieve؟']}
-],
-'فرنساوي': [
-{t:'Les verbes - être et avoir',d:'être: je suis, tu es, il est. avoir: j’ai, tu as, il a.',q:['صرفي فعل être مع je؟']},
-{t:'La famille',d:'le père, la mère, le frère, la sœur.',q:['ما معنى la mère؟']}
-],
-'تاريخ': [
-{t:'تاريخ مصر الحديث',d:'الحملة الفرنسية 1798، محمد علي 1805، ثورة 1919 سعد زغلول، ثورة 1952.',q:['متى كانت الحملة الفرنسية؟','من هو محمد علي؟']},
-{t:'الحضارة الاسلامية',d:'الدولة الاموية، الدولة العباسية، الاندلس.',q:['ما عاصمة العباسيين؟']}
-],
-'جغرافيا': [
-{t:'جغرافيا مصر - النيل',d:'نهر النيل: اطول انهار العالم، ينبع من بحيرة فيكتوريا، يصب في البحر المتوسط.',q:['من اين ينبع النيل؟','اين يصب النيل؟']},
-{t:'المناخ',d:'مناخ مصر: حار جاف صيفا، دافئ ممطر شتاء على السواحل الشمالية.',q:['ما مناخ مصر؟']}
-],
-'احصاء': [
-{t:'الوسط الحسابي',d:'الوسط = مجموع القيم / عددها.',q:['اوجدي الوسط: 2،4،6؟']},
-{t:'الوسيط والمنوال',d:'الوسيط: القيمة الوسطى بعد الترتيب. المنوال: اكثر قيمة تكرارا.',q:['ما هو المنوال؟']}
-],
-'فيزياء': [
-{t:'الحركة - السرعة',d:'السرعة = المسافة / الزمن. وحدتها م/ث.',q:['احسبي السرعة لو المسافة 100 والزمن 10؟']},
-{t:'الطاقة',d:'طاقة الوضع = الكتلة × عجلة الجاذبية × الارتفاع.',q:['ما قانون طاقة الوضع؟']}
-],
-'كيمياء': [
-{t:'الجدول الدوري',d:'مجموعات ودورات، الفلزات على اليسار، اللافلزات على اليمين.',q:['اين تقع الفلزات؟']},
-{t:'التفاعلات الكيميائية',d:'انواعها: اتحاد، انحلال، احلال بسيط، احلال مزدوج.',q:['ما انواع التفاعلات؟']}
-],
-'احياء': [
-{t:'الخلية',d:'وحدة بناء الكائن الحي، تحتوي على نواة، سيتوبلازم، غشاء.',q:['ما مكونات الخلية؟']},
-{t:'الوراثة',d:'الجينات تحمل الصفات، قانون مندل الاول: انعزال العوامل.',q:['ما قانون مندل الاول؟']}
-],
-'رياضيات': [
-{t:'الدوال',d:'الدالة: علاقة تربط كل عنصر من المجال بعنصر واحد فقط من المجال المقابل.',q:['ما تعريف الدالة؟']},
-{t:'النهايات',d:'نهاية الدالة عند نقطة هي القيمة التي تقترب منها الدالة.',q:['ما هي النهاية؟']}
-],
-'جيولوجيا': [
-{t:'الصخور',d:'انواع الصخور: نارية، رسوبية، متحولة.',q:['ما انواع الصخور؟']}
-],
-'اسلاميك': [
-{t:'Islamic - Pillars of Islam',d:'Shahada, Prayer, Zakat, Fasting, Hajj.',q:['What are the five pillars?']}
-]
-};
-const common = [{n:'قرآن كريم',e:'📖',s:'حفظ وتجويد'},{n:'حديث',e:'📜',s:'شرح واحاديث'},{n:'تفسير',e:'📘',s:'تفسير'},{n:'توحيد',e:'☁️',s:'عقيدة'},{n:'فقه',e:'⚖️',s:'شافعي / حنفي'},{n:'اسلاميك',e:'🌙',s:'Islamic'},{n:'ميراث',e:'🧮',s:'اصحاب الفروض'}];
-const adabi = [{n:'عربي',e:'✍️',s:'نحو - صرف - بلاغة'},{n:'انجليزي',e:'🔤',s:'English'},{n:'فرنساوي',e:'🇫🇷',s:'Français'},{n:'تاريخ',e:'🏛️',s:'تاريخ'},{n:'جغرافيا',e:'🌍',s:'جغرافيا'},{n:'احصاء',e:'📊',s:'احصاء'}];
-const elmi = [{n:'عربي',e:'✍️',s:'نحو - صرف - بلاغة'},{n:'انجليزي',e:'🔤',s:'English'},{n:'فيزياء',e:'⚡',s:'Physics'},{n:'كيمياء',e:'🧪',s:'Chemistry'},{n:'احياء',e:'🧬',s:'Biology'},{n:'رياضيات',e:'➗',s:'رياضيات'},{n:'جيولوجيا',e:'🪨',s:'Geology'}];
-function renderSubjects(){
-let list=[...common]; if(section==='ادبي') list=[...list,...adabi]; if(section==='علمي') list=[...list,...elmi];
-document.getElementById('subjectsList').innerHTML=list.map(s=>`<div class="sub" onclick="openSubject('${s.n}')"><span>${s.e}</span><b>${s.n}</b><small>${s.s}</small></div>`).join('');
-document.getElementById('sectionText').innerText=section?'قسمك الحالي: '+section+' - ازهر':'';
-document.getElementById('doneCount').innerText='خلصتي '+done.length+' درس لحد دلوقتي';
-}
-function chooseSection(s){section=s;localStorage.setItem('section',s);renderSubjects();alert('تم اختيار قسم '+s+' يا قمر 🩷');}
-function chooseMadhab(m){madhab=m;localStorage.setItem('madhab',m);document.getElementById('madhabText').innerText='تم اختيار: فقه '+m;openSubject('فقه '+(m==='شافعي'?'شافعي':'حنفي'));}
-function openSubject(name){
-if(name==='فقه'){if(!madhab){showPage('fiqh');return;} name='فقه '+madhab;}
-currentSubject=name;
-document.getElementById('subjectTitle').innerText=name;
-let lessons=DATA[name]||[{t:'لسه بنجهز دروس '+name,d:'هنحط دروس المادة دي قريب جدا، كملي في باقي المواد دلوقتي 🩷',q:['راجعي اللي فات؟']}];
-document.getElementById('lessonsList').innerHTML=lessons.map((l,i)=>`<div class="lesson" onclick="openLesson(${i})"><span><b>${l.t}</b><br><small>${done.includes(name+'-'+l.t)?'✅ تم':'🤍 لسه'}</small></span><span class="tag">افتحي</span></div>`).join('');
-showPage('subject');
-}
-function openLesson(i){
-let l=DATA[currentSubject][i]; currentLesson=currentSubject+'-'+l.t;
-document.getElementById('lessonTitle').innerText=l.t;
-document.getElementById('lessonSub').innerText=currentSubject;
-document.getElementById('lessonContent').innerHTML=`<b>📖 الشرح:</b><p>${l.d}</p><b>❓ اسئلة الامتحان:</b>`+l.q.map(q=>`<div class="q"><b>${q}</b><br><small>فكري فيها واكتبي اجابتك في الكشكول</small></div>`).join('')+`<div class="q"><b>💡 نصيحة:</b><br>اقري الشرح مرتين، وبعدين جاوبي الاسئلة من غير ما تبصي.</div>`;
-showPage('lesson');
-}
-function markDone(){ if(!done.includes(currentLesson)){done.push(currentLesson);localStorage.setItem('done',JSON.stringify(done));} alert('عاش يا بطلة! خلصتي درس 🩷'); renderSubjects(); openSubject(currentSubject); }
-function showPage(p,el){['home','subject','lesson','fiqh','timer','tasks'].forEach(x=>document.getElementById('page-'+x).classList.add('hidden'));document.getElementById('page-'+p).classList.remove('hidden');document.querySelectorAll('.nav div').forEach(d=>d.classList.remove('active'));if(el)el.classList.add('active');window.scrollTo(0,0);}
-let timerInt=null,sec=50*60;
-function startTimer(){if(timerInt)return;document.getElementById('timerStatus').innerText='بتذاكري دلوقتي... عاش 💪';timerInt=setInterval(()=>{sec--;let m=Math.floor(sec/60),s=sec%60;document.getElementById('timerText').innerText=m+':'+(s<10?'0'+s:s);if(sec<=0){clearInterval(timerInt);timerInt=null;alert('خلصتي 50 دقيقة! خدي راحة 10 دقايق 🩷');}},1000);}
-function resetTimer(){clearInterval(timerInt);timerInt=null;sec=50*60;document.getElementById('timerText').innerText='50:00';document.getElementById('timerStatus').innerText='جاهزة تبدأي؟';}
-function addTask(){let v=document.getElementById('taskInput').value;if(!v)return;let d=document.createElement('div');d.className='lesson';d.innerHTML=`<span>🤍 ${v}</span><span onclick="this.parentElement.remove()">❌</span>`;document.getElementById('tasksList').appendChild(d);document.getElementById('taskInput').value='';}
-renderSubjects();
-</script>
-</body>
-                                       </html>
+<div class="top">
+<svg class="butterfly" style="top:8px;left:16px" width="28" height
